@@ -3,7 +3,6 @@ import "../App.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { toast } from "react-toastify";
-import { type } from "@testing-library/user-event/dist/type";
 import { postSignUp } from "../apiCalls";
 
 const schema = yup
@@ -19,7 +18,6 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),

@@ -16,7 +16,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -78,7 +77,7 @@ const Login = () => {
           <div>
             <input
               className="inputfield"
-              type="text"
+              type="password"
               placeholder="Password"
               {...register("password")}
             />

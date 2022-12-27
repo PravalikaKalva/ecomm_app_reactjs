@@ -1,21 +1,12 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import {
-  addProductToCart,
-  loadCartProducts,
-  loadProducts,
-  removeCartItem,
-} from "../apiCalls";
+import { addProductToCart, loadCartProducts, loadProducts } from "../apiCalls";
 import Header from "./Header";
-
-import CartView from "./CartView";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
-  const [showCart, setShowCart] = useState(false);
+
   const [cart, setCart] = useState([]);
-  const [uniqueCartItems, setUniqueCartItems] = useState([]);
 
   const fetchProducts = async () => {
     try {
