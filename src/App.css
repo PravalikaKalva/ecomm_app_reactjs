@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.split-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #60c1ae;
+}
+
+.inputfield {
+  margin-top: 5px;
+}
+input {
+  width: 320px;
+  border-radius: 16px;
+  padding: 8px;
+}
+.form {
+  border: 2px solid black;
+  width: 400px;
+  height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-right: 150px;
+}
+
+.heading {
+  width: 100%;
+  color: white;
+  position: fixed;
+  top: 0px;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  background-color: #2874f0;
+}
+
+.heading h1 {
+  margin-left: 500px;
+}
+.heading button {
+  margin-right: 0px;
+}
+
+.rows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+table {
+  width: 70%;
+  text-align: "center";
+  margin: 5px;
+}
+td {
+  padding: 10px 0px;
+}
+.image {
+  width: 40%;
+}
+.secondcol {
+  width: 40%;
+}
+.thirdcol h3 {
+  color: green;
+}
+.thirdcol {
+  width: 20%;
+}
+
+#sup {
+  color: red;
+}
+.price {
+  color: green;
+}
+
+.secondcol p {
+  color: #e70977;
+}
+
+.tot_price {
+  color: darkgreen;
+  display: flex;
+  justify-content: space-evenly;
+}
+.table_data {
+  font-size: larger;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
