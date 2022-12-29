@@ -17,32 +17,49 @@ const CartView = (props) => {
     setPrice(ans);
   };
 
-  const handleQuantity = async (product, d) => {
-    let ind = 0;
+  const handleQuantity = (product, d) => {
+    var quantity = 1;
 
     if (d == -1 && product.quantity == 1) {
+      handleRemoveItem(product.id);
       return;
     }
-    cartInfo.forEach((item, index) => {
+    cartInfo.forEach((item) => {
       if (item.id == product.id) {
-        ind = index;
-        return;
+        quantity = product.quantity + d;
+        handleRemoveItem(product.id);
+        setTimeout(() => {
+          handleAddItem(product.id, quantity);
+        }, 500);
       }
     });
+    console.log(`removed ${product.id}`);
+  };
 
-    const tempArr = cartInfo;
-    tempArr[ind].quantity += d;
-    setCartInfo([...tempArr]);
+  const handleAddItem = async (id, quantity) => {
+    try {
+      await addProductToCart({
+        id: id,
+        quantity: quantity,
+      });
+
+      console.log(`added quantity ${quantity}`);
+
+      fetchCartProducts();
+    } catch (error) {
+      console.log(error);
+      const message = error?.response?.data?.message || "Something went wrong";
+      toast(message, {
+        type: "error",
+        theme: "colored",
+      });
+    }
   };
 
   const handleRemoveItem = async (id) => {
     try {
-      const response = await removeCartItem(id);
-      const message = response?.data?.message;
-      toast(message, {
-        type: "success",
-        theme: "colored",
-      });
+      await removeCartItem(id);
+
       fetchCartProducts();
     } catch (error) {
       const message = error?.response?.data?.message || "Something went wrong";
@@ -59,11 +76,6 @@ const CartView = (props) => {
       setCartInfo(response.data);
     } catch (error) {
       console.log(error);
-      const message = error?.response?.data?.message || "Something went wrong";
-      toast(message, {
-        type: "error",
-        theme: "colored",
-      });
     }
   };
 
